@@ -12,7 +12,7 @@ export type AuthCredentials = AuthCredentialsObject[]
 export const parseCredentials = (credentials: string): AuthCredentials => {
   const authCredentials: AuthCredentials = []
 
-  credentials.split('|').forEach((item) => {
+  credentials.split('|').forEach(item => {
     if (item.length < 3) {
       throw new Error(
         `Received incorrect basic auth syntax, use <username>:<password>, received ${item}`
@@ -47,11 +47,11 @@ export const compareCredentials = (
 ): boolean => {
   const validUsername = compare(
     user.name,
-    requiredCredentials.find((item) => item.name === user.name)?.name ?? ''
+    requiredCredentials.find(item => item.name === user.name)?.name ?? ''
   )
   const validPassword = compare(
     user.pass,
-    requiredCredentials.find((item) => item.password === user.pass)?.password ??
+    requiredCredentials.find(item => item.password === user.pass)?.password ??
       ''
   )
 

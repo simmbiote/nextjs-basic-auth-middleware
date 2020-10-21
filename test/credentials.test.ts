@@ -54,4 +54,12 @@ describe('compareCredentials', () => {
       ])
     ).toBe(false)
   })
+
+  it('returns false when a user does not enter credentials', () => {
+    expect(
+      compareCredentials({ name: 'test', pass: 'secret' }, [
+        { name: '', password: '' },
+      ])
+    ).toBe(false)
+  })
 })
